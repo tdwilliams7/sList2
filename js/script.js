@@ -24,7 +24,7 @@ function loadList(arr){
   for (var i = 0; i < arr.length; i++){
     let newItem = document.createElement('div');
     newItem.setAttribute('class', 'row');
-    newItem.innerHTML = `<div class='col-xs-4'>` + arr[i].name + `</div>
+    newItem.innerHTML = `<div class='col-xs-4' id='name'>` + arr[i].name + `</div>
     <div class='col-xs-4'>`+ '$ ' + arr[i].price.toFixed(2) + `</div>
     <div class='col-xs-2'><input type='checkbox'></input></div>
     <button onClick=deleteFoodButton(this)><i class='fa fa-trash'></i></button>`;
