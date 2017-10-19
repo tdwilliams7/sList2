@@ -5,3 +5,7 @@
 #list .row{
 
 }
+
+#priceAlert, #foodAlert{
+  color: red;
+}
