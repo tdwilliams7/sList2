@@ -53,10 +53,11 @@ function deleteFoodButton(e){
 
 };
 
+let addFoodButton = document.getElementById('addFoodButton');
 
-function inputNewItem() {
-  let foodName = document.getElementById('foodName').value
-  let foodPrice = document.getElementById('foodPrice').value
+addFoodButton.addEventListener('click', function(){
+  let foodName = document.getElementById('foodName').value;
+  let foodPrice = document.getElementById('foodPrice').value;
   var newItemObj = {
     name: foodName,
     price: (parseFloat(foodPrice)),
@@ -66,4 +67,18 @@ function inputNewItem() {
   console.log(items);
   loadList(items);
   getTotal(items);
-}
+})
+
+// function inputNewItem() {
+//   let foodName = document.getElementById('foodName').value
+//   let foodPrice = document.getElementById('foodPrice').value
+//   var newItemObj = {
+//     name: foodName,
+//     price: (parseFloat(foodPrice)),
+//     completed: false
+//   }
+//   items.push(newItemObj);
+//   console.log(items);
+//   loadList(items);
+//   getTotal(items);
+// }
