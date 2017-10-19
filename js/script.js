@@ -25,7 +25,7 @@ function loadList(arr){
     let newItem = document.createElement('div');
     newItem.setAttribute('class', 'row');
     newItem.innerHTML = `<div class='col-xs-4'>` + arr[i].name + `</div>
-    <div class='col-xs-4'>`+ '$ ' + arr[i].price + `</div>
+    <div class='col-xs-4'>`+ '$ ' + arr[i].price.toFixed(2) + `</div>
     <div class='col-xs-2'><input type='checkbox'></input></div>
     <button onClick=deleteFoodButton(this)><i class='fa fa-trash'></i></button>`;
     list.appendChild(newItem);
@@ -51,7 +51,6 @@ getTotal(items);
 function deleteFoodButton(e){
   console.log('delete');
   e.parentNode.remove(e.id)
-
 };
 
 let addFoodButton = document.getElementById('addFoodButton');
