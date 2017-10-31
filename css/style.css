@@ -2,7 +2,8 @@
   margin: auto;
 }
 #list .row:hover{
-  background-color: grey;
+  background-color: #AEB6BF;
+  color: white;
   font-size: 16px
 }
 
@@ -12,4 +13,7 @@
 
 #priceAlert, #foodAlert{
   color: red;
+}
+#input {
+  vertical-align: middle;
 }
