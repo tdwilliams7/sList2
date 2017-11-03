@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 app.get('/foods', (req, res) => {
     db.collection('foods').find().toArray(function (err, result) {
         if (err) return console.log(err);
-        res.send(result[0]._id);
+        res.send(result);
     });
 });
 

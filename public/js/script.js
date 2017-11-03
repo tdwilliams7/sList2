@@ -3,13 +3,13 @@ var items = [
     name: 'bread',
     price: 2.99,
     checked: false,
-    _id: '"one"'
+
   },
   {
     name: 'tomato',
     price: 0.79,
     checked: false,
-    _id: '"two'
+
   },
   {
     name: 'beer',
@@ -20,6 +20,9 @@ var items = [
 ];
 
 let list = document.getElementById('list');
+let addFoodButton = document.getElementById('addFoodButton');
+let foodAlert = document.getElementById('foodAlert');
+let priceAlert = document.getElementById('priceAlert');
 
 function loadList(arr){
   list.innerHTML = '';
@@ -28,7 +31,7 @@ function loadList(arr){
     newItem.setAttribute('class', 'row');
     newItem.innerHTML = `<div class='col-xs-4' id='name'>` + arr[i].name + `</div>
     <div class='col-xs-4'>`+ '$ ' + arr[i].price.toFixed(2) + `</div>
-    <div class='col-xs-2'><input type='checkbox'></input></div>
+    <div class='col-xs-2'><input type='checkbox' onChange=checkedBox(this)></input></div>
     <button onClick=deleteFoodButton(this) id='` + i + `'><i class='fa fa-trash'></i></button>`;
     list.appendChild(newItem);
   }
@@ -40,10 +43,13 @@ loadList(items);
 
 function getTotal(arr){
   let total=0;
-  for (var i = 0; i < arr.length; i++){
-    total += (arr[i].price);
-  }
-  console.log(total)
+  arr.forEach(function(el){
+    total += el.price
+  })
+  // for (var i = 0; i < arr.length; i++){
+  //   total += (arr[i].price);
+  // }
+
   let totalDiv = document.getElementById('total');
   totalDiv.innerHTML = `<h4>`+total.toFixed(2)+`</h4>`;
 }
@@ -51,15 +57,18 @@ getTotal(items);
 
 
 function deleteFoodButton(e){
-  console.log('delete');
   items.splice(e.id, 1);
   loadList(items);
   getTotal(items);
 };
 
-let addFoodButton = document.getElementById('addFoodButton');
-let foodAlert = document.getElementById('foodAlert');
-let priceAlert = document.getElementById('priceAlert');
+function checkedBox(e){
+  if (e.checked){
+    e.parentNode.parentNode.id = 'comp';
+  } else {
+    e.parentNode.parentNode.id = '';
+  }
+}
 
 addFoodButton.addEventListener('click', function(){
   let foodName = document.getElementById('foodName');
@@ -71,7 +80,6 @@ addFoodButton.addEventListener('click', function(){
     completed: false
   }
   items.push(newItemObj);
-  console.log(items);
   loadList(items);
   getTotal(items);
   foodName.value = '';

@@ -2,18 +2,32 @@
   margin: auto;
 }
 #list .row:hover{
-  background-color: #AEB6BF;
   color: white;
   font-size: 16px
 }
 
 #list .row{
-
+ padding: 2px
 }
 
 #priceAlert, #foodAlert{
   color: red;
 }
-#input {
-  vertical-align: middle;
+body {
+    background-color: lightgrey;
+}
+
+button:hover {
+    box-shadow: 3px 2px 3px black;
+    color: black;
+}
+
+header {
+    padding: 2%;
+    background: linear-gradient(to right, #7474BF, #348AC7);
+    background: -webkit-linear-gradient(right, #7474BF, #348AC7);
+    margin: auto;
+}
+#comp {
+    color: grey;
 }
