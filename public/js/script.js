@@ -2,12 +2,14 @@ var items = [
   {
     name: 'bread',
     price: 2.99,
-    checked: false
+    checked: false,
+    _id: '"one"'
   },
   {
     name: 'tomato',
     price: 0.79,
-    checked: false
+    checked: false,
+    _id: '"two'
   },
   {
     name: 'beer',
@@ -27,7 +29,7 @@ function loadList(arr){
     newItem.innerHTML = `<div class='col-xs-4' id='name'>` + arr[i].name + `</div>
     <div class='col-xs-4'>`+ '$ ' + arr[i].price.toFixed(2) + `</div>
     <div class='col-xs-2'><input type='checkbox'></input></div>
-    <button onClick=deleteFoodButton(this)><i class='fa fa-trash'></i></button>`;
+    <button onClick=deleteFoodButton(this) id='` + i + `'><i class='fa fa-trash'></i></button>`;
     list.appendChild(newItem);
   }
 
@@ -50,7 +52,9 @@ getTotal(items);
 
 function deleteFoodButton(e){
   console.log('delete');
-  e.parentNode.remove(e.id)
+  items.splice(e.id, 1);
+  loadList(items);
+  getTotal(items);
 };
 
 let addFoodButton = document.getElementById('addFoodButton');
