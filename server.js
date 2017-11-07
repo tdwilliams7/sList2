@@ -7,16 +7,8 @@ const methodOverride =require('method-override');
 const mongoURI = 'mongodb://admin:fakepass@ds243335.mlab.com:43335/grocerypricelist';
 
 
-
 mongoose.connection.openUri(mongoURI);
 
-// mongoose.connect('mongodb://admin:fakepass@ds243335.mlab.com:43335/grocerypricelist', {useMongoClient: true}, (err, database) => {
-//     if (err) return console.log(err);
-//     db = database;
-//     app.listen(3000, function(){
-//         console.log('listening on 3000');
-//     });
-// });
 
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
