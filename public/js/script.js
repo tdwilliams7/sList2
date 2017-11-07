@@ -24,36 +24,23 @@ let addFoodButton = document.getElementById('addFoodButton');
 let foodAlert = document.getElementById('foodAlert');
 let priceAlert = document.getElementById('priceAlert');
 
-function loadList(arr){
-  list.innerHTML = '';
-  for (var i = 0; i < arr.length; i++){
-    let newItem = document.createElement('div');
-    newItem.setAttribute('class', 'row');
-    newItem.innerHTML = `<div class='col-xs-4' id='name'>` + arr[i].name + `</div>
-    <div class='col-xs-4'>`+ '$ ' + arr[i].price.toFixed(2) + `</div>
-    <div class='col-xs-2'><input type='checkbox' onChange=checkedBox(this)></input></div>
-    <button onClick=deleteFoodButton(this) id='` + i + `'><i class='fa fa-trash'></i></button>`;
-    list.appendChild(newItem);
-  }
+// function loadList(arr){
+//   list.innerHTML = '';
+//   for (var i = 0; i < arr.length; i++){
+//     let newItem = document.createElement('div');
+//     newItem.setAttribute('class', 'row');
+//     newItem.innerHTML = `<div class='col-xs-4' id='name'>` + arr[i].name + `</div>
+//     <div class='col-xs-4'>`+ '$ ' + arr[i].price.toFixed(2) + `</div>
+//     <div class='col-xs-2'><input type='checkbox' onChange=checkedBox(this)></input></div>
+//     <div class='col-xs-2'><button onClick=deleteFoodButton(this) id='` + i + `'><i class='fa fa-trash'></i></button></div>`;
+//     list.appendChild(newItem);
+//   }
 
 
-}
-loadList(items);
+//}
+//loadList(items);
 
 
-function getTotal(arr){
-  let total=0;
-  arr.forEach(function(el){
-    total += el.price
-  })
-  // for (var i = 0; i < arr.length; i++){
-  //   total += (arr[i].price);
-  // }
-
-  let totalDiv = document.getElementById('total');
-  totalDiv.innerHTML = `<h4>`+total.toFixed(2)+`</h4>`;
-}
-getTotal(items);
 
 
 function deleteFoodButton(e){
@@ -70,28 +57,28 @@ function checkedBox(e){
   }
 }
 
-addFoodButton.addEventListener('click', function(){
-  let foodName = document.getElementById('foodName');
-  let foodPrice = document.getElementById('foodPrice');
-  if (foodName.value.length > 0 && foodPrice.value.length > 0){
-    var newItemObj = {
-    name: foodName.value,
-    price: (parseFloat(foodPrice.value)),
-    completed: false
-  }
-  items.push(newItemObj);
-  loadList(items);
-  getTotal(items);
-  foodName.value = '';
-  foodPrice.value= '';
-  foodAlert.textContent = '';
-  priceAlert.textContent = '';
-  } else {
-    foodAlert.textContent ='please enter a food';
-    priceAlert.textContent = 'Please enter a Price';
-  }
+// addFoodButton.addEventListener('click', function(){
+//   let foodName = document.getElementById('foodName');
+//   let foodPrice = document.getElementById('foodPrice');
+//   if (foodName.value.length > 0 && foodPrice.value.length > 0){
+//     var newItemObj = {
+//     name: foodName.value,
+//     price: (parseFloat(foodPrice.value)),
+//     completed: false
+//   }
+//   items.push(newItemObj);
+//   loadList(items);
+//   getTotal(items);
+//   foodName.value = '';
+//   foodPrice.value= '';
+//   foodAlert.textContent = '';
+//   priceAlert.textContent = '';
+//   } else {
+//     foodAlert.textContent ='please enter a food';
+//     priceAlert.textContent = 'Please enter a Price';
+//   }
 
-})
+// })
 
 // function inputNewItem() {
 //   let foodName = document.getElementById('foodName').value
