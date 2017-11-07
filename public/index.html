@@ -6,7 +6,7 @@
 
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
-  <<script src="https://use.fontawesome.com/8a53285008.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
   <script type="text/javascript" src='js/jquery-3.2.1.min.js'></script>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
   <script type="text/javascript" src='js/popper.min.js'></script>
@@ -27,7 +27,7 @@
     </div>
     <div class="col-xs-2"></div>
     <div class="col-xs-2">
-      <input type='text' id='foodName' ng-model='fName' placeholder="Food Name">
+      <input type='text' id='foodName' ng-model='fName' placeholder="Food Name" autofocus="autofocus">
       <div id='foodAlert'></div>
     </div>
     <div class="col-xs-2"></div>
@@ -69,11 +69,10 @@
       <input type="checkbox" name="comp" onChange=checkedBox(this)>
     </div>
     <div class="col-xs-2">
-      <button type='submit' ng-click='deleteFood(food._id)'><i class='fa fa-trash'></i></button>
+      <button type='submit' ng-click='deleteFood(food._id)'><i class='fa fa-trash-o'></i></button>
     </div>
 
   </section>
   </div>
-  <script type="text/javascript" src='js/script.js'></script>
 </body>
 </html>

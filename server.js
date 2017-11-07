@@ -4,9 +4,9 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const methodOverride =require('method-override');
-var db;
 
-mongoose.connect('mongodb://localhost/priceList', {useMongoClient: true});
+
+mongoose.connect('mongodb://admin:fakepass@ds243335.mlab.com:43335/grocerypricelist', {useMongoClient: true});
 
 // mongoose.connect('mongodb://admin:fakepass@ds243335.mlab.com:43335/grocerypricelist', {useMongoClient: true}, (err, database) => {
 //     if (err) return console.log(err);

@@ -26,9 +26,6 @@ function mainController($scope, $http){
         angular.forEach($scope.foods, function(food){
             total += food.price;
         });
-        // for (let i = 0; i < $scope.foods.length; i++){
-        //     total += $scope.foods[i].price;
-        // }
         return total.toFixed(2);
     };
 
@@ -55,10 +52,18 @@ function mainController($scope, $http){
          foodPrice.value = '';
          foodAlert.textContent = '';
          priceAlert.textContent = '';
+         foodName.focus();
             } else {
         foodAlert.textContent ='please enter a food';
         priceAlert.textContent = 'Please enter a Price';
      }
 
     };
+}
+function checkedBox(e){
+  if (e.checked){
+    e.parentNode.parentNode.id = 'comp';
+  } else {
+    e.parentNode.parentNode.id = '';
+  }
 }

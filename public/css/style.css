@@ -23,6 +23,10 @@ body {
     background-color: lightgrey;
 }
 
+section {
+  padding-bottom: 30px;
+}
+
 button:hover {
     box-shadow: 3px 2px 3px black;
     color: black;
