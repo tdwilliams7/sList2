@@ -41,3 +41,6 @@ header {
 #comp {
     color: grey;
 }
+.form-control {
+  position: relative;
+}

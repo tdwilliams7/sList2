@@ -4,8 +4,8 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const methodOverride =require('method-override');
-const mongoURI = 'mongodb://admin:fakepass@ds243335.mlab.com:43335/grocerypricelist';
-
+const mongoURI = 'mongodb://admin:fakepass@ds155695.mlab.com:55695/grocpricelist';
+const moment = require('moment');
 
 mongoose.connection.openUri(mongoURI);
 
@@ -20,7 +20,8 @@ app.use(methodOverride());
 
 var Food = mongoose.model('Food', {
     name: String,
-    price: Number
+    price: Number,
+    date: {type: String, default: ' '}
 });
 
 
@@ -49,7 +50,8 @@ app.delete('/foods/:food_id', function(req, res){
 app.post('/foods', function(req, res){
     Food.create({
         'name' : req.body.name,
-        'price' : req.body.price
+        'price' : req.body.price,
+        'date' : req.body.date
     }, function(err, food){
         if (err)
             res.send(err);

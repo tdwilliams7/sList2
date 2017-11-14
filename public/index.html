@@ -4,14 +4,24 @@
   <meta charset="utf-8">
   <title>Better Shopping list</title>
 
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="css/style.css">
+
+
   <link rel="stylesheet" type="text/css" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
   <script type="text/javascript" src='js/jquery-3.2.1.min.js'></script>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+  <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.2/moment.min.js'></script>
   <script type="text/javascript" src='js/popper.min.js'></script>
   <script type="text/javascript" src='js/bootstrap.min.js'></script>
-  <script type="text/javascript" src='js/core.js'></script>
+  <!--datepicker -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+
+
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+  <!-- end datepicker -->
+<link rel="stylesheet" type="text/css" href="css/style.css">
+
+
 </head>
 
 <body class="container-fluid" ng-controller='mainController'>
@@ -25,7 +35,7 @@
     <div class="col-xs-2">
       <h3>Add Food</h3>
     </div>
-    <div class="col-xs-2"></div>
+
     <div class="col-xs-2">
       <input type='text' id='foodName' ng-model='fName' placeholder="Food Name" autofocus="autofocus">
       <div id='foodAlert'></div>
@@ -35,6 +45,15 @@
       <input type="number" id='foodPrice' placeholder="Food Price">
       <div id='priceAlert'></div>
     </div>
+    <div class="col-xs-2 form-group">
+      <div class='input-group date' id='datepicker'>
+        <input type="text" class='form-control' id='date' placeholder='Buy Date'>
+          <span class="input-group-addon">
+            <span class='glyphicon glyphicon-calendar'></span>
+          </span>
+      </div>
+    </div>
+
     <div class="col-xs-2">
       <input type='submit' id='addFoodButton' ng-click='addNew()'></input>
     </div>
@@ -49,10 +68,10 @@
       <h4>Price</h4>
     </div>
     <div class="col-xs-2">
-      <h4>Total: $</h4>
+      <h4></h4>
     </div>
     <div class="col-xs-2">
-      {{totalAmount()}}
+      <h4> Total: ${{ totalAmount() }} </h4>
     </div>
   </div>
 
@@ -65,7 +84,10 @@
     <div class="col-xs-4">
        $ {{ food.price.toFixed(2) }}
     </div>
-    <div class="col-xs-2">
+    <div class="col-xs-1">
+        {{ toDay(food.date) }}
+    </div>
+    <div class="col-xs-1">
       <input type="checkbox" name="comp" onChange=checkedBox(this)>
     </div>
     <div class="col-xs-2">
@@ -74,5 +96,6 @@
 
   </section>
   </div>
+  <script type="text/javascript" src='js/core.js'></script>
 </body>
 </html>
